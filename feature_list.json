@@ -1,0 +1,44 @@
+{
+  "features": [
+    {
+      "id": "feat-001",
+      "name": "Curia Task2 Baseline Pipeline",
+      "description": "NIfTI volume loading, slice aggregation head training, prediction export for downstream classification.",
+      "dependencies": [],
+      "status": "done",
+      "evidence": "curia_t2/{utils.py,train_curia_task2.py,predict_curia_task2.py,download_curia.py,README.md} implemented and validated"
+    },
+    {
+      "id": "feat-002",
+      "name": "Harness Bootstrap",
+      "description": "Project-level harness files for continuity, verification, and scope control.",
+      "dependencies": ["feat-001"],
+      "status": "done",
+      "evidence": "AGENTS.md + init.sh + progress/session/feature state maintained; relative-path harness migration complete; conda env standardized to curia-t2; ./init.sh passes (2026-04-28)"
+    },
+    {
+      "id": "feat-003",
+      "name": "Curia Foundation Model Cache",
+      "description": "Download and cache raidium/curia backbone + processor under local cache directory.",
+      "dependencies": ["feat-001"],
+      "status": "done",
+      "evidence": "backbone-only cache present under .hf_cache; offline load check passed"
+    },
+    {
+      "id": "feat-004",
+      "name": "Lightning Config Training Flow",
+      "description": "Move training to Lightning and YAML config, with balanced class sampling and train/val split separation.",
+      "dependencies": ["feat-001", "feat-003"],
+      "status": "done",
+      "evidence": "train_curia_task2.py rewritten to Lightning; configs/train_covid.yaml + train_covid_smoke.yaml added; smoke train+predict passed"
+    },
+    {
+      "id": "feat-005",
+      "name": "Full Baseline Training",
+      "description": "Run full training on train split and evaluate on val split with balanced batch sampler.",
+      "dependencies": ["feat-004"],
+      "status": "pending",
+      "evidence": ""
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*.so
+
+# Environments and local tooling
+.conda/
+.cache/
+.codex
+
+# Model/cache artifacts
+.hf_cache/
+
+# Training outputs and checkpoints
+curia_t2/runs/
+ctnexus_t2/runs/
+vocol_t2/runs/
+**/*.ckpt
+**/*.pt
+**/*.pth
+**/*.h5
+**/*.csv
+**/*.jsonl
+
+# Large datasets / legacy trees (not part of active harness scope)
+CVPR26-3DCTFMCompetition/
+Large-Scale-Medical_CVPR26CTFM/
+CT-NEXUS/
+ctnexus_t2/
+vocol_t2/
+
+# OS/editor noise
+.DS_Store
+*.swp

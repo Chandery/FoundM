@@ -1,0 +1,42 @@
+seed: 42
+output:
+  dir: /data/home/3dgs/FoundM/curia_t2/runs/covid_fastdev
+data:
+  image_dir: /data/home/3dgs/FoundM/CVPR26-3DCTFMCompetition/COVID-CT/images
+  labels_csv: /data/home/3dgs/FoundM/CVPR26-3DCTFMCompetition/COVID-CT/labels/covid.csv
+  label_col: covid
+  train_split: train
+  val_split: val
+  num_slices: 32
+  plane: axial
+  batch_size: 8
+  num_workers: 0
+  balanced_sampler: true
+  max_train_samples: 0
+  max_val_samples: 0
+model:
+  model_id: raidium/curia
+  local_model_path: /data/home/3dgs/FoundM/.hf_cache/models--raidium--curia/snapshots/9657dc56276bc6c9503ef6f8d060879c8bee482f
+  cache_dir: /data/home/3dgs/FoundM/.hf_cache
+  hf_token: null
+  num_classes: 2
+  dropout: 0.1
+  unfreeze_backbone: false
+optim:
+  lr: 0.0002
+  wd: 0.0001
+trainer:
+  epochs: 10
+  accelerator: cpu
+  devices: 1
+  strategy: single_device
+  precision: 32-true
+  deterministic: true
+  log_every_n_steps: 1
+  gradient_clip_val: 0.0
+  fast_dev_run: true
+  num_sanity_val_steps: 0
+predict:
+  split: val
+  checkpoint: null
+  output_csv: null
