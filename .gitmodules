@@ -1,0 +1,6 @@
+[submodule "CT-NEXUS"]
+	path = CT-NEXUS
+	url = git@github.com:kmin940/CT-NEXUS.git
+[submodule "Large-Scale-Medical_CVPR26CTFM"]
+	path = Large-Scale-Medical_CVPR26CTFM
+	url = git@github.com:kmin940/Large-Scale-Medical_CVPR26CTFM.git

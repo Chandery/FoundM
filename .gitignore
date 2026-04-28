@@ -24,8 +24,6 @@ vocol_t2/runs/
 
 # Large datasets / legacy trees (not part of active harness scope)
 CVPR26-3DCTFMCompetition/
-Large-Scale-Medical_CVPR26CTFM/
-CT-NEXUS/
 ctnexus_t2/
 vocol_t2/
 
