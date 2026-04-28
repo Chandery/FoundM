@@ -1,0 +1,51 @@
+seed: 42
+
+runtime:
+  cuda_visible_devices: "1"
+  hf_modules_cache: /data/home/3dgs/FoundM/.hf_modules_cache
+  mplconfigdir: /tmp/mpl_cfg
+
+paths:
+  ctnexus_root: /data/home/3dgs/FoundM/CT-NEXUS
+  checkpoint_path: /data/home/3dgs/FoundM/CT-NEXUS/ckpt/checkpoint_final.pth
+  images_dir: /data/home/3dgs/FoundM/CVPR26-3DCTFMCompetition/COVID-CT/images
+  labels_csv: /data/home/3dgs/FoundM/CVPR26-3DCTFMCompetition/COVID-CT/labels/covid.csv
+  features_dir: /data/home/3dgs/FoundM/ctnexus_t2/runs/covid_full/features
+  run_dir: /data/home/3dgs/FoundM/ctnexus_t2/runs/covid_full
+
+extract:
+  batch_size: 1
+  num_workers: 0
+  num_classes: 2
+
+data:
+  label_col: covid
+  train_split: train
+  val_split: val
+  batch_size: 8
+  num_workers: 0
+  balanced_sampler: true
+
+model:
+  num_classes: 2
+  hidden_dim: 512
+  dropout: 0.2
+
+optim:
+  lr: 0.0005
+  wd: 0.0001
+
+trainer:
+  epochs: 100
+  fast_dev_run: false
+  accelerator: gpu
+  devices: 1
+  strategy: auto
+  precision: 32-true
+  deterministic: true
+  log_every_n_steps: 1
+
+predict:
+  split: val
+  checkpoint: null
+  output_csv: null
