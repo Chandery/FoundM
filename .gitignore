@@ -24,7 +24,6 @@ vocol_t2/runs/
 
 # Large datasets / legacy trees (not part of active harness scope)
 CVPR26-3DCTFMCompetition/
-vocol_t2/
 
 # OS/editor noise
 .DS_Store
